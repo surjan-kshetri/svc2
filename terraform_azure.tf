@@ -155,3 +155,16 @@ resource "azurerm_virtual_machine" "myterraformvm" {
         environment = "Terraform Demo"
     }
 }
+resource "azurerm_virtual_machine_extension" "test" {
+  name                 = "myvm"
+  location             = "eastus"
+  resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
+  virtual_machine_name = "${azurerm_virtual_machine.test.name}"
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "DockerExtension"
+  type_handler_version = "1.0"
+
+  tags {
+    environment = "Terraform Demo"
+  }
+}
