@@ -156,7 +156,7 @@ resource "azurerm_virtual_machine" "myterraformvm" {
     }
 }
 resource "azurerm_virtual_machine_extension" "test" {
-  name                 = "myvm"
+  name                 = "myVM"
   location             = "eastus"
   resource_group_name  = "${azurerm_resource_group.myterraformgroup.name}"
   virtual_machine_name = "${azurerm_virtual_machine.test.name}"
